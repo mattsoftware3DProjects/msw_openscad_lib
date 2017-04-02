@@ -2,7 +2,7 @@
 // use <./msw_openscad_lib/msw_cube.scad>
 // msw_cube([10,20,30]);
 
-module msw_cube(dim, rounded = 2, mask = [1,1,1,1,1,1,1,1], center=false, quality="fine", $fn = 60) {
+module msw_cube(dim, rounded = 1, mask = [1,1,1,1,1,1,1,1], center=false, quality="fine", $fn = 60) {
     offsetx = center ? -dim[0]/2 : 0;
     offsety = center ? -dim[1]/2 : 0;
     offsetz = center ? -dim[2]/2 : 0;
