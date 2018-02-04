@@ -25,12 +25,12 @@ module msw_cube(dim, rounded = 1, mask = [1,1,1,1,1,1,1,1], center=false, qualit
                 translate([offsetx+d[0]-r,offsety+r,offsetz+d[2]-r+extra]) if (mask[7]) sphere(r=r); else cube(r*2, center=true);
             }
             union() {
-                translate([0,0,-dim[2]/2-rounded/2]) cube([dim[0],dim[1],rounded], center=true);
-                translate([0,0,dim[2]/2+rounded/2]) cube([dim[0],dim[1],rounded], center=true);
-                translate([0,-dim[1]/2-rounded/2,0]) cube([dim[0],rounded,dim[2]], center=true);
-                translate([0,dim[1]/2+rounded/2,0]) cube([dim[0],rounded,dim[2]], center=true);
-                translate([-dim[0]/2-rounded/2,0,0]) cube([rounded,dim[1],dim[2]], center=true);
-                translate([dim[0]/2+rounded/2,0,0]) cube([rounded,dim[1],dim[2]], center=true);
+                translate([offsetx-r*2,offsety-r*2,offsetz-r*2]) cube([dim[0]+r*4, dim[1]+r*4, r*2], center=false);
+                translate([offsetx-r*2,offsety-r*2,dim[2]]) cube([dim[0]+r*4, dim[1]+r*4, r*2], center=false);
+                translate([offsetx-r*2,offsety-r*2,offsetz-r*2]) cube([dim[0]+r*4, r*2, dim[2]+r*4], center=false);
+                translate([offsetx-r*2,dim[1],offsetz-r*2]) cube([dim[0]+r*4, r*2, dim[2]+r*4], center=false);
+                translate([offsetx-r*2,offsety-r*2,offsetz-r*2]) cube([r*2, dim[1]+r*4, dim[2]+r*4], center=false);
+                translate([dim[0],offsety-r*2,offsetz-r*2]) cube([r*2, dim[1]+r*4, dim[2]+r*4], center=false);
             }
         }
     }
