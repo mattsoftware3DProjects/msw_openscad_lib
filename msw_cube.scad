@@ -7,7 +7,7 @@ module msw_cube(dim, rounded = 1, mask = [1,1,1,1,1,1,1,1], center=false, qualit
     offsety = center ? -dim[1]/2 : 0;
     offsetz = center ? -dim[2]/2 : 0;
     if (quality != "fine") {
-        cube(dim, center=true);
+        cube(dim, center=center);
     } else {
         d = dim;
         r = rounded;
